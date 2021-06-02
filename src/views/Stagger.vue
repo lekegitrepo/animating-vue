@@ -20,7 +20,15 @@ export default {
     }
   },
   mounted() {
-    // stagger cards into position
+    TweenMax.staggerFrom('.card', 0.5, {
+      opacity: 0,
+      y: 200,
+      scale: 0,
+      stagger: {
+        each: 0.1,
+        from: 'center'
+      }
+    })
   }
 }
 </script>
