@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import { TweenMax } from 'gsap/TweenMax'
+import gsap from 'gsap'
+
 export default {
   data() {
     return {
@@ -17,7 +18,7 @@ export default {
   },
   watch: {
     number(newValue) {
-      TweenMax.to(this.$data, 1, {
+      gsap.to(this.$data, 1, {
         ease: 'circ.out',
         tweenedNumber: newValue
       })

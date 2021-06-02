@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    TweenMax.staggerFrom('.card', 0.5, {
+    gsap.from('.card', 0.5, {
       opacity: 0,
       y: 200,
       scale: 0,
