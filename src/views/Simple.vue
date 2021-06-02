@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+import { TweenMax } from 'gsap/TweenMax'
 
 export default {
   methods: {
@@ -14,8 +14,7 @@ export default {
       el.style.transform = 'scale(0,0)'
     },
     enter(el, done) {
-      gsap.to(el, {
-        duration: 1,
+      TweenMax.to(el, 1, {
         opacity: 1,
         scale: 1,
         ease: 'bounce.out',
