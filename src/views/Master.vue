@@ -8,14 +8,22 @@
 
       <img id="fox" src="../assets/fox.png" alt="fox-logo" />
     </div>
+    <button @click="playAnimation">Play</button>
   </div>
 </template>
 
 <script>
 import gsap from 'gsap'
 
+let masterTL = gsap.timeline()
+
 export default {
   methods: {
+    playAnimation(){
+      masterTL.add(this.pawnsTL())
+      masterTL.add(this.foxTL())
+      masterTL.play()
+    },
     pawnsTL() {
       let tl = gsap.timeline()
       tl.to('.first', {
@@ -40,6 +48,17 @@ export default {
         '<.3'
       )
       return tl
+    },
+    foxTL() {
+      let tl = gsap.timeline()
+      tl.to('#fox', {
+        opacity: 1,
+        filter: 'blur(0)',
+        scale: 1,
+        duration: 0.4,
+        ease: 'slow'
+      })
+      return tl
     }
   }
 }
@@ -54,7 +73,9 @@ export default {
 }
 
 #fox {
+  filter: blur(2);
   height: 8em;
+  opacity: 0;
   width: 8em;
 }
 
