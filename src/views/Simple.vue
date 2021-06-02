@@ -6,6 +6,7 @@
 
 <script>
 import gsap from 'gsap'
+
 export default {
   methods: {
     beforeEnter(el) {
@@ -13,11 +14,10 @@ export default {
       el.style.transform = 'scale(0,0)'
     },
     enter(el, done) {
-      gsap.to(el, {
-        duration: 1,
+      gsap.to(el, 1, {
         opacity: 1,
         scale: 1,
-        ease: 'bounce.inOut',
+        ease: 'bounce.out',
         onComplete: done
       })
     }
